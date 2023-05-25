@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Chat App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_code">Send code</string>
+    <string name="enter_code">Enter code</string>
+    <string name="submit">Submit</string>
+    <string name="phone">Phone</string>
+    <string name="please_enter_phone_number">Please, enter phone number, we will sent you verification code</string>
+    <string name="sign_up">Sign up</string>
+</resources>

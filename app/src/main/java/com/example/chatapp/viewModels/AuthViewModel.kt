@@ -2,7 +2,7 @@ package com.example.chatapp.viewModels
 
 import androidx.lifecycle.MutableLiveData
 import com.example.chatapp.api.repository.AuthRepository
-import com.example.chatapp.api.request.Auth
+import com.example.chatapp.api.request.AuthRequest
 import com.example.chatapp.api.response.ApiResponse
 import com.example.chatapp.api.response.AuthResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,10 +15,10 @@ class AuthViewModel @Inject constructor(
 
     private val _authResponse = MutableLiveData<ApiResponse<AuthResponse>>()
 
-    fun authorization(auth: Auth, coroutinesErrorHandler: CoroutinesErrorHandler) = baseRequest(
+    fun auth(authRequest: AuthRequest, coroutinesErrorHandler: CoroutinesErrorHandler) = baseRequest(
         _authResponse,
         coroutinesErrorHandler
     ) {
-        authRepository.auth(auth)
+        authRepository.auth(authRequest)
     }
 }

@@ -10,8 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.chatapp.R
-import com.example.chatapp.api.request.Auth
-import com.example.chatapp.api.request.Code
+import com.example.chatapp.api.request.AuthRequest
+import com.example.chatapp.api.request.CodeRequest
 import com.example.chatapp.api.response.ApiResponse
 import com.example.chatapp.databinding.FragmentAuthBinding
 import com.example.chatapp.viewModels.AuthViewModel
@@ -46,8 +46,8 @@ class AuthFragment : Fragment() {
 
         binding.enterPhone.setOnClickListener {
 
-            viewModel.authorization(
-                Auth(fullNumber.toString()),
+            viewModel.auth(
+                AuthRequest(fullNumber.toString()),
                 object : CoroutinesErrorHandler {
                     override fun onError(message: String) {
                         Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
@@ -55,13 +55,10 @@ class AuthFragment : Fragment() {
                 })
         }
         binding.sendCode.setOnClickListener {
-            tokenViewModel.token.observe(viewLifecycleOwner) { token ->
-                if (token != null)
-                    findNavController().navigate(R.id.action_authFragment_to_registrationFragment)
-            }
+
 
             codeViewModel.code(
-                Code(
+                CodeRequest(
                     fullNumber.toString(), code.toString()
                 ), object : CoroutinesErrorHandler {
                     override fun onError(message: String) {
@@ -75,6 +72,11 @@ class AuthFragment : Fragment() {
                     ApiResponse.Loading -> Toast.makeText(context, "Loading", Toast.LENGTH_LONG).show()
                     is ApiResponse.Success -> {
                         tokenViewModel.saveToken(it.data.accessToken)
+                        if(it.data.isUserExists){
+                            findNavController().navigate(R.id.action_authFragment_to_chatsFragment)
+                        } else if(!it.data.isUserExists){
+                            findNavController().navigate(R.id.action_authFragment_to_registrationFragment)
+                        }
                     }
                 }
             }

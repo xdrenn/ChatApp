@@ -31,20 +31,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_birth_date"
+        android:id="@+id/et_tv_birth_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto"
-        android:text="Birth date:"
+        android:text="Birthday:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_city"
+        app:layout_constraintEnd_toEndOf="@+id/et_tv_city"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_city"
-        app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+        app:layout_constraintStart_toStartOf="@+id/et_tv_city"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_city" />
 
     <TextView
-        android:id="@+id/tv_number"
+        android:id="@+id/et_tv_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
@@ -52,37 +52,37 @@
         android:fontFamily="@font/roboto"
         android:text="+7999999999"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_user_name"
+        app:layout_constraintEnd_toStartOf="@+id/tv_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <TextView
-        android:id="@+id/tv_zodiac"
+        android:id="@+id/et_tv_zodiac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Zodiac sign:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_birth_date"
+        app:layout_constraintEnd_toEndOf="@+id/et_tv_birth_date"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_birth_date"
-        app:layout_constraintTop_toBottomOf="@+id/tv_birth_date" />
+        app:layout_constraintStart_toStartOf="@+id/et_tv_birth_date"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_birth_date" />
 
     <TextView
-        android:id="@+id/tv_city"
+        android:id="@+id/et_tv_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="108dp"
         android:fontFamily="@font/roboto"
         android:text="City:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_description"
+        app:layout_constraintEnd_toEndOf="@+id/et_tv_description"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_description"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+        app:layout_constraintStart_toStartOf="@+id/et_tv_description"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
 
     <TextView
-        android:id="@+id/tv_description"
+        android:id="@+id/et_tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -92,10 +92,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_number" />
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_number" />
 
     <TextView
-        android:id="@+id/tv_user_name"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <TextView
-        android:id="@+id/tv_user"
+        android:id="@+id/et_tv_user_name"
         android:layout_width="99dp"
         android:layout_height="21dp"
         android:layout_marginTop="20dp"
@@ -118,19 +118,71 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_user_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+        app:layout_constraintStart_toEndOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/profile_image"
         android:layout_width="89dp"
         android:layout_height="88dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/user_add_svgrepo_com"
+        android:src="@drawable/profile_photo"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profile_about"
+        android:layout_width="248dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/roboto"
+        android:text="Android Developer"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_description"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_user_name" />
+
+    <TextView
+        android:id="@+id/profile_city"
+        android:layout_width="316dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/roboto"
+        android:text="Saint-Petersburg"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_city"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
+
+    <TextView
+        android:id="@+id/profile_birthday"
+        android:layout_width="278dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="12.03.89"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_birth_date"
+        app:layout_constraintTop_toBottomOf="@+id/profile_city" />
+
+    <TextView
+        android:id="@+id/profile_zodiac"
+        android:layout_width="244dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/roboto"
+        android:text="Capricorn"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_zodiac"
+        app:layout_constraintTop_toBottomOf="@+id/profile_birthday" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,8 +38,16 @@ class ChatsFragment : Fragment() {
         val recyclerView: RecyclerView = binding.rcView
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ChatsAdapter(fillList())
+        recyclerView.adapter = ChatsAdapter(fillList()){ position -> onListItemClick(position) }
 
+        binding.goToProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_chatsFragment_to_profileFragment)
+        }
+
+    }
+
+    private fun onListItemClick(position: Int) {
+        findNavController().navigate(R.id.action_chatsFragment_to_chatFragment)
     }
 
     private fun fillList(): List<String> {

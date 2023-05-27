@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.chatapp.R
 import com.example.chatapp.api.request.RegisterRequest
 import com.example.chatapp.api.response.ApiResponse
+import com.example.chatapp.databinding.FragmentAuthBinding
 import com.example.chatapp.databinding.FragmentRegistrationBinding
 import com.example.chatapp.viewModels.CoroutinesErrorHandler
 import com.example.chatapp.viewModels.RegisterViewModel

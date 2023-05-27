@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatapp.R
 import com.example.chatapp.adapters.ChatsAdapter
+import com.example.chatapp.adapters.MessagesAdapter
 import com.example.chatapp.databinding.FragmentChatBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,12 +38,14 @@ class ChatFragment : Fragment() {
         val recyclerView: RecyclerView = binding.rcView
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ChatsAdapter(fillList())
+        recyclerView.adapter = MessagesAdapter(fillList())
+
     }
 
     private fun fillList(): List<String> {
         val data = mutableListOf<String>()
         data.add("Hi there")
+        data.add("Conclusion")
         return data
     }
 

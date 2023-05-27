@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".fragments.ProfileFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/back"
+        android:backgroundTint="@color/background"
+        app:elevation="0dp"
+        android:contentDescription="Back to chats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/et_tv_birth_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto"
+        android:text="Birthday:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_tv_city"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_tv_city"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_city" />
+
+    <EditText
+        android:id="@+id/et_tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="+7999999999"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_profile_name" />
+
+    <TextView
+        android:id="@+id/et_tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:fontFamily="@font/roboto"
+        android:text="City:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_tv_description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_tv_description"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
+
+    <TextView
+        android:id="@+id/et_tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/roboto"
+        android:text="About me:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_number" />
+
+    <TextView
+        android:id="@+id/et_tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="username"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_profile_name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/profile_image"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/user_add_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_about_me"
+        android:layout_width="275dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="72dp"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="Add about"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_description"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_user_name" />
+
+    <EditText
+        android:id="@+id/et_city"
+        android:layout_width="219dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="104dp"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="Add city"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_city"
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
+
+    <EditText
+        android:id="@+id/et_birth_date"
+        android:layout_width="212dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="20.02.2002"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toEndOf="@+id/et_tv_birth_date"
+        app:layout_constraintTop_toBottomOf="@+id/et_city" />
+
+    <EditText
+        android:id="@+id/et_profile_name"
+        android:layout_width="218dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="Add name"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

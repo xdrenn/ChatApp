@@ -17,9 +17,6 @@ data class UserRequest (
     val city: String,
 
     @SerializedName("phone")
-    val phone: String,
-
-    @SerializedName("avatar")
-    val avatar: String,
+    val phone: String
 
     )

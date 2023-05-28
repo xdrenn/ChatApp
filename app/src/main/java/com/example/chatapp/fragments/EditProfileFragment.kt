@@ -16,6 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.chatapp.R
 import com.example.chatapp.api.request.UserRequest
 import com.example.chatapp.databinding.FragmentEditProfileBinding
 import com.example.chatapp.viewModels.CoroutinesErrorHandler
@@ -36,8 +38,6 @@ class EditProfileFragment : Fragment() {
     private lateinit var selectedImage: AppCompatImageView
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,47 +49,56 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val name =  binding.etProfileName.text
-        val userName =  binding.etTvUserName.text
+        val name = binding.etProfileName.text
+        val userName = binding.etTvUserName.text
         val birthday = binding.etBirthDate.text
         val city = binding.etCity.text
         val phone = binding.etTvNumber.text
         selectedImage = binding.profileImage
 
 
-       binding.profileImage.setOnClickListener {
-           val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-           changeImage.launch(pickImg)
+        binding.profileImage.setOnClickListener {
+            val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            changeImage.launch(pickImg)
         }
 
-        viewModel.user(
-            UserRequest(name.toString(), userName.toString(), birthday.toString(), city.toString(), phone.toString(), selectedImage.toString())
-        , object : CoroutinesErrorHandler {
-            override fun onError(message: String) {
-                Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
-            }
-        })
+        binding.btnCheck.setOnClickListener {
+            findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
+            viewModel.user(
+                UserRequest(
+                    name.toString(),
+                    userName.toString(),
+                    birthday.toString(),
+                    city.toString(),
+                    phone.toString()
+                ), object : CoroutinesErrorHandler {
+                    override fun onError(message: String) {
+                        Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
+                    }
+                })
+        }
     }
 
     private val changeImage =
-    registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == Activity.RESULT_OK) {
-            val inputStream: InputStream? = null
-            try{
-                val data = it.data
-                val imgUri = data?.data
-                val inputStream = imgUri?.let { uri -> context?.contentResolver?.openInputStream(uri) }
-            } catch (e: FileNotFoundException) {
-                e.stackTrace
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val inputStream: InputStream? = null
+                try {
+                    val data = it.data
+                    val imgUri = data?.data
+                    val inputStream =
+                        imgUri?.let { uri -> context?.contentResolver?.openInputStream(uri) }
+                    val yourSelectedImage: Bitmap = BitmapFactory.decodeStream(inputStream)
+                    selectedImage.setImageBitmap(yourSelectedImage)
+                    encode(yourSelectedImage)
+                } catch (e: FileNotFoundException) {
+                    e.stackTrace
+                }
             }
-            val yourSelectedImage: Bitmap = BitmapFactory.decodeStream(inputStream)
-            encode(yourSelectedImage)
-            selectedImage.setImageBitmap(yourSelectedImage)
         }
-        }
-    }
+
     fun encode(image: Bitmap): String? {
         val baos = ByteArrayOutputStream()
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos)
@@ -98,3 +107,4 @@ class EditProfileFragment : Fragment() {
         Log.e("LOOK", imageEncoded)
         return imageEncoded
     }
+}

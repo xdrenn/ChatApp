@@ -19,6 +19,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background"
+        android:clickable="true"
+        android:contentDescription="Back to chats"
+        android:src="@drawable/check"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/et_tv_birth_date"
         android:layout_width="wrap_content"
@@ -36,10 +49,10 @@
         android:id="@+id/et_tv_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
-        android:text="+7999999999"
+        android:hint="+799999999"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_profile_name" />
@@ -48,38 +61,23 @@
         android:id="@+id/et_tv_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/roboto"
         android:text="City:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/et_tv_description"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_tv_description"
-        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_number"
+        tools:layout_editor_absoluteX="47dp" />
 
-    <TextView
-        android:id="@+id/et_tv_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/roboto"
-        android:text="About me:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_tv_number" />
-
-    <TextView
+    <EditText
         android:id="@+id/et_tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
-        android:text="username"
+        android:hint="username"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/et_tv_number"
         app:layout_constraintTop_toBottomOf="@+id/et_profile_name" />
 
@@ -94,44 +92,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ed_about_me"
-        android:layout_width="275dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="72dp"
-        android:background="@color/background"
-        android:ems="10"
-        android:hint="Add about"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toEndOf="@+id/et_tv_description"
-        app:layout_constraintTop_toBottomOf="@+id/et_tv_user_name" />
-
-    <EditText
         android:id="@+id/et_city"
         android:layout_width="219dp"
         android:layout_height="55dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="36dp"
         android:background="@color/background"
         android:ems="10"
         android:hint="Add city"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toEndOf="@+id/et_tv_city"
-        app:layout_constraintTop_toBottomOf="@+id/et_tv_description" />
+        app:layout_constraintTop_toBottomOf="@+id/et_tv_user_name" />
 
     <EditText
         android:id="@+id/et_birth_date"
         android:layout_width="212dp"
         android:layout_height="49dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:background="@color/background"
         android:ems="10"
-        android:hint="20.02.2002"
+        android:hint="2002-02-22"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toEndOf="@+id/et_tv_birth_date"
         app:layout_constraintTop_toBottomOf="@+id/et_city" />
 
